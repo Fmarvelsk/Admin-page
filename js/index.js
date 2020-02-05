@@ -32,6 +32,28 @@ var setupArticles = function(data){
 }   else{
     articles.innerHTML = '<div class=""> Welcome to the admin page Login</div>'
 }
+publish.addEventListener('submit', function(e){
+  e.preventDefault();
+  var key = [i].toString()
+
+  db.ref('articles').child('articles').child(key).update({
+     author: publish['author'].value,
+     content: publish['content'].value,
+     publishedAt: publish['publishedAt'].value,
+      title: publish['title'].value,
+      urlToImage: publish['image'].value,
+
+  }).then(function(){
+      console.log('Successfully written to Database')
+  })
+  .catch(function(err){
+      console.log('Error', err)
+  })
+  
+const modal = document.querySelector('#modal-create')
+M.Modal.getInstance(modal).close();
+publish.reset();
+})
 }
 document.addEventListener('DOMContentLoaded', function(){
     var modals = document.querySelectorAll('.modal');
@@ -39,31 +61,12 @@ document.addEventListener('DOMContentLoaded', function(){
     
     var items = document.querySelectorAll('collapsible');
     M.Collapsible.init(items);
+    
 
 }) 
-
-publish.addEventListener('submit', function(e){
-    e.preventDefault();
-    var key = db.push.key()
-    db.ref('articles/articles').child(key).set({
-       author: publish['author'].value,
-       content: publish['content'].value,
-       publishedAt: publish['publishedAt'].value,
-        title: publish['title'].value,
-        urlToImage: publish['image'].value,
-
-    }).then(function(){
-        console.log('Successfully written to Database')
-    })
-    .catch(function(err){
-        console.log('Error', err)
-    })
-    const modal = document.querySelector('#modal-create')
-    M.Modal.getInstance(modal).close();
-    publish.reset();
-})
-/** 
-var file = new Blob('../img/lights.jpeg')
+/**
+var data = document.getElementById('image').value
+var file = new Blob('me', {type:})
 var metadata = {
     contentType: 'image/jpeg'
   };
@@ -100,4 +103,5 @@ var storageRef = storage.ref();
     uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
       console.log('File available at', downloadURL);
     });
-  });*/
+  });
+*/

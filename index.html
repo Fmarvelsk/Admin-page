@@ -75,10 +75,6 @@
       <h4>New Post</h4><br />
       <form id="create-form" class="login-text">
         <div class="form-group">
-          <label for="content">Key</label>
-          <input type="number" class="form-control" id="keyId">
-        </div>
-        <div class="form-group">
           <label for="author">Author</label>
           <input type="text" class="form-control" id="author" required/>
         </div>
@@ -88,11 +84,11 @@
         </div>
         <div class="form-group">
           <label for="image">image</label>
-          <input type="url" class="form-control" id="image">
+          <input type="fil" class="form-control" id="image">
         </div>
         <div class="form-group">
           <label for="publishedAt">PublishedAt</label>
-          <input type="text" class="form-control" id="publishedAt" required/>
+          <input type="text" class="form-control" id="publishedAt" value="2020-02-05T11:00:00" placeholder="2020-02-05T11:00:00" required/>
         </div>
       <div class="input-field h-6">
           <textarea id="content" class ="form-control rounded-0 " rows="14" col="6" required></textarea>
@@ -102,7 +98,6 @@
       </form>
     </div>
   </div></div>
-  
   <!--Login-->
   <div id="modal-login" class="modal">
     <div class="modal-content">  

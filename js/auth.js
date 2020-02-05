@@ -5,6 +5,7 @@ auth.onAuthStateChanged(function(user){
 starCountRef.on('value', function(snapshot) {
   setupArticles(snapshot.val());
   setupUI(user)
+  
 })
 }
     else{
